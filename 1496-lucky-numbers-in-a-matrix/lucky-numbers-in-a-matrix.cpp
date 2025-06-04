@@ -6,27 +6,28 @@ public:
         int m=matrix[0].size();
         for(int i=0;i<n;i++)
         {
-            int min_in_row=matrix[i][0];
-            int colIndex=0;
+            int minval=matrix[i][0];
+            int colindex=0;
             for(int j=1;j<m;j++)
             {
-                if(matrix[i][j]<min_in_row)
+                if(matrix[i][j]<minval)
                 {
-                min_in_row=matrix[i][j];
-                colIndex=j;
+                    minval=matrix[i][j];
+                    colindex=j;
                 }
             }
-            bool max_in_col=true;
-            for(int k=0;k<n;k++)
-            {
-                if(matrix[k][colIndex]>min_in_row)
+                bool maxval=true;
+                for(int k=0;k<n;k++)
                 {
-                    max_in_col=false;
-                    break;
+                    if(matrix[k][colindex]>minval)
+                    {
+                        maxval=false;
+                        break;
+                    }
                 }
-            }
-            if(max_in_col)
-            res.push_back(min_in_row);
+               
+            
+             if(maxval)res.push_back(minval);
         }
         return res;
     }
