@@ -1,31 +1,29 @@
 class Solution {
 public:
     vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
-        
-        int n=mat.size();
-        int m=mat[0].size();
+     
+      int n=mat.size();
+      int m=mat[0].size();
+      if(r*c!=n*m)return mat;
 
-        if(n*m!=r*c)return mat;
-
-        vector<vector<int>>res;
-        res.resize(r,vector<int>(c));
-        int row=0;
-        int col=0;
-
-        for(int i=0;i<n;i++)
+       vector<vector<int>>res;
+      res.resize(r,vector<int>(c));
+      int row=0;
+      int col=0;
+      for(int i=0;i<n;i++)
+      {
+        for(int j=0;j<m;j++)
         {
-            for(int j=0;j<m;j++)
+            res[row][col]=mat[i][j];
+            col++;
+            if(col==c)
             {
-                res[row][col]=mat[i][j];
-                col++;
-                if(col==c)
-                {
-                    col=0;
-                    row++;
-                }
-               
+                col=0;
+                row++;
             }
+
         }
-        return res;
+      }
+      return res;
     }
 };
