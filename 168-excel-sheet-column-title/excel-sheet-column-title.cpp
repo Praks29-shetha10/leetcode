@@ -6,9 +6,9 @@ public:
         {
             columnNumber--;
             int remainder=columnNumber%26;
-            char ch='A'+remainder;
-            res=ch+res;
-           columnNumber/=26;
+           char ch='A'+remainder;
+           res=ch+res;
+            columnNumber/=26;
         }
         return res;
     }
