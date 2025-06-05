@@ -9,22 +9,18 @@ public:
             for(int j=0;j<n;j++)
             {
                 if(matrix[j][i]!=-1)
-                {
-                    colMax[i]=max(colMax[i],matrix[j][i]);
-                }
+                colMax[i]=max(colMax[i],matrix[j][i]);
             }
         }
-        vector<vector<int>>result=matrix;
+        vector<vector<int>>answer=matrix;
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
             {
-                if(result[i][j]==-1)
-                {
-                   result[i][j]=colMax[j];
-                }
+                if(answer[i][j]==-1)
+                answer[i][j]=colMax[j];
             }
         }
-        return result;
+        return answer;
     }
 };
