@@ -1,17 +1,21 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
-        unordered_set<int>s;
-        vector<int>result;
+        unordered_map<int,int>freq;
         for(int n:nums)
         {
-            if(s.count(n))
+            freq[n]++;
+        }
+       unordered_set<int>res;
+        for(int n:nums)
+        {
+           if(freq[n]==2)
+           res.insert(n);
+        }
+        vector<int>result;
+        for(int n:res)
+        {
             result.push_back(n);
-            else
-            s.insert(n);
-
-           
-
         }
         return result;
     }
