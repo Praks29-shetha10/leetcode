@@ -6,12 +6,10 @@ public:
         {
             for(int j=i+1;j<nums.size();j++)
             {
-                if(nums[i]==nums[j])
-                count++;
+                if(nums[i]==nums[j])count++;
+
             }
-           
         }
         return count;
     }
 };
-
